@@ -1,0 +1,21 @@
+/*
+  [MAIN][MEMBER-34] TODO: Khu vực dành cho thành viên 2.
+  Mục tiêu: chuẩn bị class hook và data-aos cho scroll reveal và micro-interaction.
+  Không kích hoạt AOS trong nhánh main. Chỉ để các wrapper chuẩn bị sẵn.
+*/
+
+[data-aos] {
+  transition: opacity var(--transition-soft), transform var(--transition-soft);
+}
+
+.js-micro-cta {
+  /* [MEMBER-34][REQ-4] TODO: Add button hover/active/focus ring feedback in feature/scroll-micro. */
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos],
+  .js-micro-cta {
+    transition: none;
+  }
+}

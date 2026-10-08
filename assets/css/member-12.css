@@ -1,0 +1,32 @@
+/*
+  [MAIN][MEMBER-12] TODO: Khu vực dành cho thành viên 1.
+  Mục tiêu: chuẩn bị class hook cho intro animation and portfolio interaction.
+  Không triển khai hoàn chỉnh các hiệu ứng trong nhánh main. Giữ các class hook rõ ràng.
+*/
+
+.js-intro-header,
+.js-intro-hero-content,
+.js-intro-hero-visual,
+.js-portfolio-card {
+  /* [MEMBER-12][REQ-1] Hook: Main branch only prepares DOM hooks for later animation branch. */
+  transition: transform var(--transition-soft), opacity var(--transition-soft), filter var(--transition-soft);
+}
+
+/* [MEMBER-12][REQ-2] TODO: Portfolio hover/flip card states should be implemented in feature/intro-portfolio */
+.js-portfolio-card {
+  cursor: pointer;
+}
+
+.js-portfolio-card:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-intro-header,
+  .js-intro-hero-content,
+  .js-intro-hero-visual,
+  .js-portfolio-card {
+    transition: none;
+  }
+}
