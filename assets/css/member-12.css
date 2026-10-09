@@ -1,20 +1,111 @@
 /*
-  [MAIN][MEMBER-12] TODO: Khu vực dành cho thành viên 1.
-  Mục tiêu: chuẩn bị class hook cho intro animation and portfolio interaction.
-  Không triển khai hoàn chỉnh các hiệu ứng trong nhánh main. Giữ các class hook rõ ràng.
+  [MEMBER-12][REQ-1] Intro animation and portfolio interaction.
 */
 
 .js-intro-header,
 .js-intro-hero-content,
 .js-intro-hero-visual,
 .js-portfolio-card {
-  /* [MEMBER-12][REQ-1] Hook: Main branch only prepares DOM hooks for later animation branch. */
-  transition: transform var(--transition-soft), opacity var(--transition-soft), filter var(--transition-soft);
+  transition: transform var(--transition-soft), opacity var(--transition-soft), filter var(--transition-soft), box-shadow var(--transition-soft);
 }
 
-/* [MEMBER-12][REQ-2] TODO: Portfolio hover/flip card states should be implemented in feature/intro-portfolio */
+body.js-setup-ready .js-intro-header,
+body.js-setup-ready .js-intro-hero-content,
+body.js-setup-ready .js-intro-hero-visual {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+body.js-setup-ready .js-intro-header {
+  transform: translateY(-16px);
+}
+
+body.js-setup-ready .js-intro-hero-content {
+  transform: translateY(24px);
+}
+
+body.js-setup-ready .js-intro-hero-visual {
+  transform: translateY(28px) scale(0.98);
+}
+
+body.js-setup-ready .site-header .brand,
+body.js-setup-ready .site-header .site-nav,
+body.js-setup-ready .site-header .nav-cta,
+body.js-setup-ready .js-intro-hero-content .eyebrow,
+body.js-setup-ready .js-intro-hero-content h1,
+body.js-setup-ready .js-intro-hero-content p,
+body.js-setup-ready .js-intro-hero-content .hero-actions,
+body.js-setup-ready .js-intro-hero-content .hero-metrics > *,
+body.js-setup-ready .js-intro-hero-visual .dashboard-shell,
+body.js-setup-ready .js-intro-hero-visual .floating-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+body.js-intro-ready .js-intro-header,
+body.js-intro-ready .js-intro-hero-content,
+body.js-intro-ready .js-intro-hero-visual,
+body.js-intro-ready .site-header .brand,
+body.js-intro-ready .site-header .site-nav,
+body.js-intro-ready .site-header .nav-cta,
+body.js-intro-ready .js-intro-hero-content .eyebrow,
+body.js-intro-ready .js-intro-hero-content h1,
+body.js-intro-ready .js-intro-hero-content p,
+body.js-intro-ready .js-intro-hero-content .hero-actions,
+body.js-intro-ready .js-intro-hero-content .hero-metrics > *,
+body.js-intro-ready .js-intro-hero-visual .dashboard-shell,
+body.js-intro-ready .js-intro-hero-visual .floating-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.js-intro-ready .site-header .brand { transition-delay: 150ms; }
+body.js-intro-ready .site-header .site-nav { transition-delay: 220ms; }
+body.js-intro-ready .site-header .nav-cta { transition-delay: 300ms; }
+body.js-intro-ready .js-intro-hero-content .eyebrow { transition-delay: 170ms; }
+body.js-intro-ready .js-intro-hero-content h1 { transition-delay: 290ms; }
+body.js-intro-ready .js-intro-hero-content p { transition-delay: 430ms; }
+body.js-intro-ready .js-intro-hero-content .hero-actions { transition-delay: 560ms; }
+body.js-intro-ready .js-intro-hero-content .hero-metrics > * { transition-delay: 620ms; }
+body.js-intro-ready .js-intro-hero-visual .dashboard-shell { transition-delay: 320ms; }
+body.js-intro-ready .js-intro-hero-visual .floating-card { transition-delay: 540ms; }
+
 .js-portfolio-card {
   cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.js-portfolio-card:hover,
+.js-portfolio-card:focus-visible {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 28px 56px rgba(15, 23, 42, 0.5);
+}
+
+.js-portfolio-card.is-active {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 26px 52px rgba(124, 58, 237, 0.18);
+}
+
+.js-portfolio-card .project-visual {
+  transition: transform var(--transition-soft), filter var(--transition-soft), box-shadow var(--transition-soft);
+}
+
+.js-portfolio-card:hover .project-visual,
+.js-portfolio-card:focus-visible .project-visual,
+.js-portfolio-card.is-active .project-visual {
+  transform: scale(1.04);
+  filter: saturate(1.08);
+}
+
+.js-portfolio-card .project-body {
+  transition: transform var(--transition-soft), opacity var(--transition-soft);
+}
+
+.js-portfolio-card.is-active .project-body {
+  transform: translateY(-4px);
 }
 
 .js-portfolio-card:focus-visible {
@@ -22,11 +113,73 @@
   outline-offset: 3px;
 }
 
+.visual-fashion {
+  background-image: linear-gradient(135deg, rgba(124, 58, 237, 0.42), rgba(249, 115, 22, 0.10)), url("../images/project-fashion.svg");
+}
+
+.visual-estate {
+  background-image: linear-gradient(135deg, rgba(34, 211, 238, 0.35), rgba(99, 102, 241, 0.18)), url("../images/project-estate.svg");
+}
+
+.visual-food {
+  background-image: linear-gradient(135deg, rgba(251, 146, 60, 0.3), rgba(34, 211, 238, 0.14)), url("../images/project-food.svg");
+}
+
+.visual-tech {
+  background-image: linear-gradient(135deg, rgba(10, 156, 255, 0.32), rgba(124, 58, 237, 0.18)), url("../images/project-tech.svg");
+}
+
+.visual-education {
+  background-image: linear-gradient(135deg, rgba(52, 211, 153, 0.28), rgba(59, 130, 246, 0.14)), url("../images/project-education.svg");
+}
+
+.visual-travel {
+  background-image: linear-gradient(135deg, rgba(244, 114, 182, 0.3), rgba(34, 211, 238, 0.14)), url("../images/project-travel.svg");
+}
+
+.visual-fashion,
+.visual-estate,
+.visual-food,
+.visual-tech,
+.visual-education,
+.visual-travel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js-intro-header,
   .js-intro-hero-content,
   .js-intro-hero-visual,
-  .js-portfolio-card {
+  .js-portfolio-card,
+  .js-intro-hero-content .eyebrow,
+  .js-intro-hero-content h1,
+  .js-intro-hero-content p,
+  .js-intro-hero-content .hero-actions,
+  .js-intro-hero-content .hero-metrics > *,
+  .js-intro-hero-visual .dashboard-shell,
+  .js-intro-hero-visual .floating-card,
+  .js-portfolio-card .project-visual,
+  .js-portfolio-card .project-body {
     transition: none;
+    animation: none;
+  }
+
+  body.js-setup-ready .js-intro-header,
+  body.js-setup-ready .js-intro-hero-content,
+  body.js-setup-ready .js-intro-hero-visual,
+  body.js-setup-ready .site-header .brand,
+  body.js-setup-ready .site-header .site-nav,
+  body.js-setup-ready .site-header .nav-cta,
+  body.js-setup-ready .js-intro-hero-content .eyebrow,
+  body.js-setup-ready .js-intro-hero-content h1,
+  body.js-setup-ready .js-intro-hero-content p,
+  body.js-setup-ready .js-intro-hero-content .hero-actions,
+  body.js-setup-ready .js-intro-hero-content .hero-metrics > *,
+  body.js-setup-ready .js-intro-hero-visual .dashboard-shell,
+  body.js-setup-ready .js-intro-hero-visual .floating-card {
+    opacity: 1;
+    transform: none;
   }
 }
