@@ -1,0 +1,24 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-fashion" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F1147"/>
+      <stop offset="1" stop-color="#231B4D"/>
+    </linearGradient>
+    <linearGradient id="card-fashion" x1="120" y1="60" x2="620" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C084FC"/>
+      <stop offset="1" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#bg-fashion)"/>
+  <circle cx="670" cy="116" r="88" fill="#F59E0B" fill-opacity="0.18"/>
+  <circle cx="170" cy="150" r="120" fill="#8B5CF6" fill-opacity="0.2"/>
+  <rect x="150" y="90" width="500" height="300" rx="28" fill="rgba(15,23,42,0.34)" stroke="rgba(255,255,255,0.18)"/>
+  <rect x="190" y="120" width="240" height="240" rx="20" fill="url(#card-fashion)"/>
+  <circle cx="240" cy="172" r="36" fill="#FDF2F8" fill-opacity="0.8"/>
+  <path d="M214 254C225 222 246 205 275 205C304 205 324 223 338 254V316H214V254Z" fill="#FDF2F8" fill-opacity="0.8"/>
+  <rect x="448" y="136" width="170" height="22" rx="11" fill="#E2E8F0" fill-opacity="0.8"/>
+  <rect x="448" y="180" width="130" height="16" rx="8" fill="#E2E8F0" fill-opacity="0.5"/>
+  <rect x="448" y="212" width="150" height="16" rx="8" fill="#E2E8F0" fill-opacity="0.5"/>
+  <rect x="448" y="246" width="110" height="16" rx="8" fill="#E2E8F0" fill-opacity="0.5"/>
+  <rect x="448" y="290" width="130" height="34" rx="17" fill="#22D3EE" fill-opacity="0.7"/>
+</svg>
